@@ -1,9 +1,10 @@
 import './App.css';
 import React from 'react'
 import Header from './components/Header.js';
-import FilterList from './components/FilterList.js'
+// import FilterList from './components/FilterList.js'
 import ImageList from './components/ImageList.js';
 import images from './data/data.js';
+import SearchBar from './components/SearchBar.js';
 
 export default class App extends React.Component {
   state = {
@@ -22,7 +23,7 @@ export default class App extends React.Component {
 
     let filterKeyArray = Object.keys(this.state.filterArray);
 
-    let filterdImages = images.filter((image) => {
+    let filteredImages = images.filter((image) => {
       // filters using a for loop through all of the filters applied 
       let include = true;
       for (let key of filterKeyArray) {
@@ -34,9 +35,23 @@ export default class App extends React.Component {
     })
 
     this.setState({
-      displayedImages: filterdImages,
+      displayedImages: filteredImages,
     })
-    console.log(this.state.displayedImages);
+
+  }
+
+  handleSearch = (e) => {
+    let filteredImages = images.filter((image) => {
+      let searchValue = e.target.value;
+      let imageValues = image.horns + image.description + image.title + image.keyword;
+      if (imageValues.includes(searchValue)) {
+        return true;
+      }
+      return false;
+    })
+    this.setState({
+      displayedImages: filteredImages,
+    })
 
   }
 
@@ -48,7 +63,8 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <FilterList function={this.handleFilters} />
+        {/* <FilterList function={this.handleFilters} /> */}
+        <SearchBar onChange={this.handleSearch} />
         <button value="search" onClick={this.applyFilters}>Search</button>
         <ImageList images={this.state.displayedImages} />
       </div>
