@@ -1,7 +1,11 @@
 const filterData = [
+    // the JSONs that handle filter creation
     {
+        // title: menu label
         title: '# of horns',
+        // key: the image key app should search in
         key: "horns",
+        // passed function for filter parameters
         optionFunction:
             function (images) {
                 let tempArray = ['any'];

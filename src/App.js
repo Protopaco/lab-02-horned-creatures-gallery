@@ -10,19 +10,20 @@ export default class App extends React.Component {
     filterArray: [],
     displayedImages: images,
   }
-
+  // when the user changes a drop down menu, the information is stored in "filterArray"
   handleFilters = (returnedObject) => {
     this.setState({
       filterArray: returnedObject,
     })
   }
-
+  // when the user pushes the 'search' button it applies the filters to the images list
+  // and returns those that meet all of the conditions
   applyFilters = () => {
 
     let filterKeyArray = Object.keys(this.state.filterArray);
 
     let filterdImages = images.filter((image) => {
-
+      // filters using a for loop through all of the filters applied 
       let include = true;
       for (let key of filterKeyArray) {
         if (!image[key].toString().includes(this.state.filterArray[key]) && this.state.filterArray[key] !== 'any') {
