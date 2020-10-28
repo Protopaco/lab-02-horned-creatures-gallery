@@ -26,6 +26,10 @@ body{
 
 .image-image{
   width: 75%;
+  max-height: 200px;
+}
+.num-horns{
+  margin-top: 0;
 }
 
 .image-li{
@@ -40,6 +44,7 @@ body{
 
 .description{
   font-size: .75em ;
+  margin-bottom: 0;
 }
 
 button{

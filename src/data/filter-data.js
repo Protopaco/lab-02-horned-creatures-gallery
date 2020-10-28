@@ -6,6 +6,7 @@ const filterData = [
         // key: the image key app should search in
         key: "horns",
         // passed function for filter parameters
+        position: "start",
         optionFunction:
             function (images) {
                 let tempArray = ['any'];
@@ -20,6 +21,7 @@ const filterData = [
     {
         title: "keyword",
         key: "keyword",
+        position: "start",
         optionFunction:
             function (images) {
                 let tempArray = ['any'];
@@ -35,6 +37,7 @@ const filterData = [
     {
         title: "title",
         key: "title",
+        position: "start",
         optionFunction:
             function (images) {
                 let tempArray = ['any'];
@@ -50,6 +53,7 @@ const filterData = [
     {
         title: "description ends with:",
         key: "description",
+        position: "end",
         optionFunction:
             function (images) {
                 let tempArray = ['any'];
@@ -66,6 +70,7 @@ const filterData = [
     {
         title: "description starts with:",
         key: "description",
+        position: "start",
         optionFunction:
             function (images) {
                 let tempArray = ['any'];
@@ -81,6 +86,7 @@ const filterData = [
     {
         title: "middle 5 letters of title:",
         key: "title",
+        position: "contains",
         optionFunction:
             function (images) {
                 let tempArray = ['any'];
@@ -101,6 +107,7 @@ const filterData = [
     {
         title: "first four letters of title:",
         key: "title",
+        position: "start",
         optionFunction:
             function (images) {
                 let tempArray = ['any'];

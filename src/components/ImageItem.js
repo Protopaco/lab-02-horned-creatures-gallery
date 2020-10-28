@@ -7,7 +7,7 @@ export default class ImageItem extends Component {
                 <p className="title">{this.props.image.title}</p>
                 <img className="image-image" src={this.props.image.url} alt={this.props.image.title} />
                 <p className="description">{this.props.image.description}</p>
-                <p># of horns: {this.props.image.horns}</p>
+                <p className="num-horns"># of horns: {this.props.image.horns}</p>
             </li>
         )
     }
