@@ -12,38 +12,38 @@ export default class App extends React.Component {
     displayedImages: images,
   }
   // when the user changes a drop down menu, the information is stored in "filterArray"
-  handleFilters = (returnedObject) => {
-    this.setState({
-      filterArray: returnedObject,
-    })
-  }
+  // handleFilters = (returnedObject) => {
+  //   this.setState({
+  //     filterArray: returnedObject,
+  //   })
+  // }
   // when the user pushes the 'search' button it applies the filters to the images list
   // and returns those that meet all of the conditions
-  applyFilters = () => {
+  // applyFilters = () => {
 
-    let filterKeyArray = Object.keys(this.state.filterArray);
+  //   let filterKeyArray = Object.keys(this.state.filterArray);
 
-    let filteredImages = images.filter((image) => {
-      // filters using a for loop through all of the filters applied 
-      let include = true;
-      for (let key of filterKeyArray) {
-        if (!image[key].toString().includes(this.state.filterArray[key]) && this.state.filterArray[key] !== 'any') {
-          include = false;
-        }
-      }
-      return include;
-    })
+  //   let filteredImages = images.filter((image) => {
+  //     // filters using a for loop through all of the filters applied 
+  //     let include = true;
+  //     for (let key of filterKeyArray) {
+  //       if (!image[key].toString().includes(this.state.filterArray[key]) && this.state.filterArray[key] !== 'any') {
+  //         include = false;
+  //       }
+  //     }
+  //     return include;
+  //   })
 
-    this.setState({
-      displayedImages: filteredImages,
-    })
+  //   this.setState({
+  //     displayedImages: filteredImages,
+  //   })
 
-  }
+  // }
 
   handleSearch = (e) => {
     let filteredImages = images.filter((image) => {
-      let searchValue = e.target.value;
-      let imageValues = image.horns + image.description + image.title + image.keyword;
+      let searchValue = e.target.value.toLowerCase();
+      let imageValues = (image.horns + image.description + image.title + image.keyword).toLowerCase();
       if (imageValues.includes(searchValue)) {
         return true;
       }
@@ -65,7 +65,7 @@ export default class App extends React.Component {
         <Header />
         {/* <FilterList function={this.handleFilters} /> */}
         <SearchBar onChange={this.handleSearch} />
-        <button value="search" onClick={this.applyFilters}>Search</button>
+        {/* <button value="search" onClick={this.applyFilters}>Search</button> */}
         <ImageList images={this.state.displayedImages} />
       </div>
     );
